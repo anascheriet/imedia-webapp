@@ -14,10 +14,20 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@reduxjs/toolkit": "1.8.2",
+    "axios": "0.27.2",
+    "redux": "4.2.0",
+    "redux-saga": "1.2.3",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "framer-motion": "^2.9.5",
+    "@mui/material": "^5.8.5",
+    "node-sass": "^4.14.1",
+    "react-redux": "8.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3006 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-persist": "^6.0.0"
   }
 }
