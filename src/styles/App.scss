@@ -1,0 +1,54 @@
+* {
+    margin: 2;
+    padding: 2;
+    box-sizing: border-box;
+  }
+  
+  html {
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: darkgray;
+    }
+  }
+  
+  body {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-family: "Abril Fatface", cursive;
+    font-weight: lighter;
+    color: #FFCC01;
+  }
+  
+  h3 {
+    font-size: 1rem;
+    color: #FFCC01;
+    padding: 1rem 1rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 200%;
+    color: #FFCC01;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #FFCC01;
+  }
+  
+  img {
+    display: block;
+  }
+  
+  input {
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+  }
+  @import "./home.scss";
+  @import "./pokemon.scss";

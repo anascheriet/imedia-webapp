@@ -1,11 +1,19 @@
 export interface IPokemonList {
     count: number;
     next: string;
-    //results: IPokemonListResults[];
+    previous: string;
+    results: IPokemonListResults[];
 }
 
 
-//export interface IPokemonListResults {
-//    name: string;
-//    url: string;
-//}
+
+export interface IPokemonListResults {
+    name: string;
+    url: string;
+}
+
+
+
+export interface IState {
+    pokemons: IPokemonList
+}

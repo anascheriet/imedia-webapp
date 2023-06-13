@@ -1,14 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/app.scss';
 import { Nav } from './components/Nav';
-import { Home } from './pages/Home';
+import { PokemonList } from './components/pokemonList/PokemonList';
 
 function App() {
   return (
     <div className="App">
      <Nav />
-     <Home/>
+     <PokemonList/>
     </div>
   );
 }

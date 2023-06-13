@@ -13,9 +13,9 @@ import {
 } from 'redux-persist'
 import { configureStore } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({
-  pokemon: pokemonSlice,
-});
+//const rootReducer = combineReducers({
+//  pokemon: pokemonSlice,
+//});
 
 
 const persistConfig = {
@@ -25,7 +25,8 @@ const persistConfig = {
 }
 
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, pokemonSlice.reducer)
+
 
 
 export default configureStore({

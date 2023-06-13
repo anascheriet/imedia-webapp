@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.5",
+    "@reduxjs/toolkit": "1.8.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,21 +14,18 @@
     "@types/node": "^16.18.31",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
+    "axios": "0.27.2",
+    "framer-motion": "^2.9.5",
+    "node-sass": "^4.14.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
+    "react-redux": "8.0.2",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "@reduxjs/toolkit": "1.8.2",
-    "axios": "0.27.2",
     "redux": "4.2.0",
     "redux-saga": "1.2.3",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "framer-motion": "^2.9.5",
-    "@mui/material": "^5.8.5",
-    "node-sass": "^4.14.1",
-    "react-redux": "8.0.2"
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "set PORT=3006 && react-scripts start",
@@ -51,6 +52,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react-modal": "^3.16.0",
+    "@types/react-router-dom": "^5.3.3",
     "redux-persist": "^6.0.0"
   }
 }
