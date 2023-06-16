@@ -8,12 +8,12 @@ interface IPokemonState {
   selectedPokemon: IPokemonDetails
 }
 
-const initialState: IPokemonState = {
+export const initialState: IPokemonState = {
   pokemons: {
-    results: [],
     count: 0,
     next: "",
     previous: "",
+    results: [],
   },
   selectedPokemon: {},
 };
@@ -23,6 +23,9 @@ export const pokemonSlice: Slice<IPokemonState> = createSlice({
   name: "pokemon",
   initialState,
   reducers: {
+    unsetPokemon: (state) => {
+      state.selectedPokemon = initialState.selectedPokemon;
+    },
     setPokemonList: (state, action: PayloadAction<IPokemonList>) => {
       state.pokemons.next = action.payload.next;
       state.pokemons.count = action.payload.count;
@@ -35,5 +38,5 @@ export const pokemonSlice: Slice<IPokemonState> = createSlice({
   },
 });
 
-export const { setPokemonList, setSelectedPokemon } = pokemonSlice.actions;
+export const { setPokemonList, setSelectedPokemon, cleanState, unsetPokemon } = pokemonSlice.actions;
 export default pokemonSlice.reducer;

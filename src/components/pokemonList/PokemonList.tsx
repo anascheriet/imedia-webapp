@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setPokemonList } from '../../redux/slices/PokemonSlice';
+import { cleanState, initialState, setPokemonList, setSelectedPokemon } from '../../redux/slices/PokemonSlice';
 import { RootState } from '../../redux/storestate';
 import pokemonsEndpoint from './../../api/api';
 import appApi from './../../api/axios';
@@ -11,6 +11,7 @@ import "../../styles/home.scss"
 import { fadeIn } from './../../animation';
 import git from "../../img/github.svg"
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Loader } from './../Loader';
 
 
 export const PokemonList: React.FC = () => {
@@ -24,10 +25,7 @@ export const PokemonList: React.FC = () => {
   const [offset, setOffset] = useState<number>(0);
 
   useEffect(() => {
-
     loadPokemons(pokemonsEndpoint);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const dispatch = useDispatch();
@@ -61,25 +59,26 @@ export const PokemonList: React.FC = () => {
       <motion.div className="PokemonList" /* variants={fadeIn} initial="hidden" animate="show" */>
         {/* <AnimateSharedLayout type="crossfade"> */}
 
-          <InfiniteScroll
-            dataLength={offset}
-            next={() => { loadPokemons(pokemons.next) }}
-            hasMore={hasMore}
-            loader={<p>Loading...</p>}
-          >
-            <div className="Pokemons"> {pokemons?.results?.map(pok => (
-              <PokemonItem key={pok.url} name={pok.name} url={pok.url} />
-            ))}</div>
+        <InfiniteScroll
+          dataLength={offset}
+          next={() => { loadPokemons(pokemons.next) }}
+          hasMore={hasMore}
+          loader={<Loader />}
+          scrollThreshold={0.9}
+        >
+          <div className="Pokemons"> {pokemons?.results?.map(pok => (
+            <PokemonItem key={pok.url} name={pok.name} url={pok.url} />
+          ))}</div>
 
 
-          </InfiniteScroll>
+        </InfiniteScroll>
 
-          {/*  <div className="Pokemons">
+        {/*  <div className="Pokemons">
             {pokemons.results.map(pok => (
               <PokemonItem key={pok.name} name={pok.name} url={pok.url} />
             ))}
           </div> */}
-       {/*  </AnimateSharedLayout> */}
+        {/*  </AnimateSharedLayout> */}
       </motion.div>
     </div>
   )

@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion';
 import "../../styles/pokemonDetails.scss"
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { IPokemonDetails, IState, IStatsList } from './types';
 import { preparePokemonStatList, calculatePokemonRatingOutOf5, capitalizeFirstLetter } from './utilsFunctions';
 import fullStar from "../../img/star-full.svg";
 import emptyStar from "../../img/star-empty.svg";
+import { unsetPokemon } from '../../redux/slices/PokemonSlice';
 type IProps = {
     url: string,
     handleClose: () => void
 }
 export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
+
+    useEffect(() => {
+        return () => {
+            dispatch(unsetPokemon(null))
+        };
+    }, [])
+
+    const dispatch = useDispatch();
 
     const selectedPokemon: IPokemonDetails = useSelector((state: IState) => state.selectedPokemon)
 
@@ -37,7 +46,7 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
         const element = e.target;
         if (element.classList.contains('card-shadow')) {
             document.body.style.overflow = "auto";
-        }
+        };
         handleClose()
     }
 
@@ -51,7 +60,7 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
                         <motion.h3 layoutId={`h3 ${url}`}>{capitalizeFirstLetter(selectedPokemon.name)}</motion.h3>
                         <p>Rating: {getRating()}</p >
                         {getStars()}
-                    </motion.div>           
+                    </motion.div>
 
                 </motion.div>
                 <motion.div className="media">
