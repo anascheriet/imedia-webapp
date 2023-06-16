@@ -5,8 +5,9 @@ import "../../styles/pokemon.scss"
 import appApi from './../../api/axios';
 import { useDispatch } from 'react-redux';
 import { setSelectedPokemon } from '../../redux/slices/PokemonSlice';
-import { Modal} from '@mui/material';
+import { Modal } from '@mui/material';
 import { PokemonDetail } from '../pokemonDetail/PokemonDetail';
+import { fadeIn } from './../../animation';
 
 
 type IProps = {
@@ -32,8 +33,7 @@ export const PokemonItem: React.FC<IProps> = ({ url, name }) => {
 
     return (
         <div>
-            {/* <Button onClick={handleOpen}>Open modal</Button> */}
-            <motion.div onClick={handleOpen} layoutId={url.toString()} className="styledPokemon" variants={popup} initial="hidden" animate="show">
+            <motion.div onClick={handleOpen} layoutId={url.toString()} className="styledPokemon" variants={fadeIn} initial="hidden" animate="show">
                 <motion.h3 layoutId={`h3 ${url.toString()}`}>{name}</motion.h3>
 
             </motion.div>
@@ -43,7 +43,7 @@ export const PokemonItem: React.FC<IProps> = ({ url, name }) => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <PokemonDetail url={url} handleClose={handleClose}/>
+                <PokemonDetail url={url} handleClose={handleClose} />
             </Modal>
         </div>
 

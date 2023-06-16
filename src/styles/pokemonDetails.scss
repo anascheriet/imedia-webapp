@@ -1,20 +1,4 @@
 .card-shadow {
-  /* width: 50%;
-  background: #FFCC01;
-  position: fixed;
-  top: 20%;
-  left: 20%;
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
-  }
-  &::-webkit-scrollbar-track {
-    background: white;
-  }
-  z-index: 10; */
   width: 100%;
   min-height: 100vh;
   overflow-y: scroll;
@@ -27,7 +11,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
+    background-color: #FFCC01;
   }
   &::-webkit-scrollbar-track {
     background: white;
@@ -47,8 +31,6 @@
     width: 2em;
   }
   z-index: 20;
- /*  overflow: auto;
-  max-height: 700px; */
 }
 
 .stats {
@@ -106,7 +88,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
+    background-color: #FFCC01;
   }
   &::-webkit-scrollbar-track {
     background: white;

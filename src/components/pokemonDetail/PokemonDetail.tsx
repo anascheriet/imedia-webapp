@@ -51,7 +51,7 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
                         <motion.h3 layoutId={`h3 ${url}`}>{capitalizeFirstLetter(selectedPokemon.name)}</motion.h3>
                         <p>Rating: {getRating()}</p >
                         {getStars()}
-                    </motion.div>
+                    </motion.div>           
 
                 </motion.div>
                 <motion.div className="media">
