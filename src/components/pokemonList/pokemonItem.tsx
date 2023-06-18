@@ -12,9 +12,10 @@ import { fadeIn } from './../../animation';
 
 type IProps = {
     name: string;
-    url: string
+    url: string;
+    index: string;
 }
-export const PokemonItem: React.FC<IProps> = ({ url, name }) => {
+export const PokemonItem: React.FC<IProps> = ({ url, name, index }) => {
 
     const [open, setOpen] = React.useState(false);
 
@@ -33,7 +34,7 @@ export const PokemonItem: React.FC<IProps> = ({ url, name }) => {
 
     return (
         <div>
-            <motion.div onClick={handleOpen} layoutId={url.toString()} className="styledPokemon" variants={fadeIn} initial="hidden" animate="show">
+            <motion.div data-testid={`pokemon-item-${index}`} id={`pokemon-${index}`} onClick={handleOpen} layoutId={url.toString()} className="styledPokemon" variants={fadeIn} initial="hidden" animate="show">
                 <motion.h3 layoutId={`h3 ${url.toString()}`}>{name}</motion.h3>
 
             </motion.div>

@@ -50,7 +50,7 @@ export const PokemonList: React.FC = () => {
 
   }
   return (
-    <div>
+    <div data-testid="pokemon-list">
       <div className="sticky-container">
         <div className="button-container  ">
           <a title="Source code" href="https://github.com/anascheriet/imedia-webapp" target="_blank" rel="noreferrer"><img src={git} alt="github" /></a>
@@ -66,19 +66,10 @@ export const PokemonList: React.FC = () => {
           loader={<Loader />}
           scrollThreshold={0.9}
         >
-          <div className="Pokemons"> {pokemons?.results?.map(pok => (
-            <PokemonItem key={pok.url} name={pok.name} url={pok.url} />
+          <div className="Pokemons"> {pokemons?.results?.map((pok, index) => (
+            <PokemonItem index={index.toString()} key={pok.url} name={pok.name} url={pok.url} />
           ))}</div>
-
-
         </InfiniteScroll>
-
-        {/*  <div className="Pokemons">
-            {pokemons.results.map(pok => (
-              <PokemonItem key={pok.name} name={pok.name} url={pok.url} />
-            ))}
-          </div> */}
-        {/*  </AnimateSharedLayout> */}
       </motion.div>
     </div>
   )

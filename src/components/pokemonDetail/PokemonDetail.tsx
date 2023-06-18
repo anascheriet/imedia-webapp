@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import "../../styles/pokemonDetails.scss"
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,6 +7,7 @@ import { preparePokemonStatList, calculatePokemonRatingOutOf5, capitalizeFirstLe
 import fullStar from "../../img/star-full.svg";
 import emptyStar from "../../img/star-empty.svg";
 import { unsetPokemon } from '../../redux/slices/PokemonSlice';
+import { Loader } from './../Loader';
 type IProps = {
     url: string,
     handleClose: () => void
@@ -51,7 +52,8 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
     }
 
     return (
-        <div><motion.div
+
+        <div>{selectedPokemon === null ? <Loader /> : <motion.div
             className="card-shadow" onClick={exitCardHandlr}>
             <motion.div
                 layoutId={url} className="detail">
@@ -61,15 +63,11 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
                         <p>Rating: {getRating()}</p >
                         {getStars()}
                     </motion.div>
-
                 </motion.div>
                 <motion.div className="media">
                     <motion.img layoutId={`image ${url}`} src={selectedPokemon?.sprites?.other['official-artwork'].front_default} alt="pokemon logo" />
                 </motion.div>
-                {/* <div className="description">
-                <p>{game.description_raw}</p>
-            </div> */}
             </motion.div>
-        </motion.div></div>
+        </motion.div>}</div>
     )
 }
