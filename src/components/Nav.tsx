@@ -8,11 +8,9 @@ export const Nav = () => {
   return (
     <div>
       <motion.div className="StyledNav" variants={fadeIn} initial="hidden" animate="show">
-
         <motion.div className="Logo">
           <img src={logo} alt="logo" />
         </motion.div>
-
       </motion.div>
     </div>
   )

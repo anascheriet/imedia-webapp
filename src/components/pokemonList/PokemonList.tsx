@@ -40,8 +40,6 @@ export const PokemonList: React.FC = () => {
       setOffset(offset + 20)
     }
     catch (error) {
-      console.log(error);
-
       toast.error("Could not get pokemons list :( ")
 
     } finally {
@@ -61,7 +59,7 @@ export const PokemonList: React.FC = () => {
           dataLength={offset}
           next={() => { loadPokemons(pokemons.next) }}
           hasMore={hasMore}
-          loader={<Loader />}
+          loader={<Loader colors={['#FFCC01', '#365EAB', '#365EAB', '#365EAB', '#365EAB']} />}
           scrollThreshold={0.9}
         >
           <div className="Pokemons"> {pokemons?.results?.map((pok, index) => (

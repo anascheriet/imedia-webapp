@@ -3,11 +3,12 @@ import { motion } from 'framer-motion';
 import "../../styles/pokemonDetails.scss"
 import { useSelector, useDispatch } from 'react-redux';
 import { IPokemonDetails, IState, IStatsList } from './types';
-import { preparePokemonStatList, calculatePokemonRatingOutOf5, capitalizeFirstLetter } from './utilsFunctions';
+import { preparePokemonStatList, calculatePokemonRatingOutOf5, capitalizeFirstLetter } from './utils';
 import fullStar from "../../img/star-full.svg";
 import emptyStar from "../../img/star-empty.svg";
 import { unsetPokemon } from '../../redux/slices/PokemonSlice';
 import { Loader } from './../Loader';
+import { ColorRing } from 'react-loader-spinner';
 type IProps = {
     url: string,
     handleClose: () => void
@@ -53,37 +54,39 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
 
     return (
 
-        <div>{selectedPokemon === null ? <Loader /> : <motion.div
+        <motion.div
             className="card-shadow" onClick={exitCardHandlr}>
+
             <motion.div
                 layoutId={url} className="detail">
-                <motion.div className="stats">
-                    <motion.div className="rating">
-                        <motion.h3 layoutId={`h3 ${url}`}>{capitalizeFirstLetter(selectedPokemon.name)}</motion.h3>
-                        <p>Rating: {getRating()}</p >
-                        {getStars()}
-                    </motion.div>
-                    <motion.div className="info">
-                        <h3>Stats</h3>
+                {!selectedPokemon ? <Loader colors={['#FFCC01', '#FFCC01', '#FFCC01', '#FFCC01', '#FFCC01']} /> :
+                    <React.Fragment>
                         <motion.div className="stats">
-                            {
-                                selectedPokemon?.stats?.map(stat => (
-                                    <div key={stat.stat.name} className="stat"><p> {stat.stat.name} </p><h3> {stat.base_stat} </h3></div>
+                            <motion.div className="rating">
+                                <motion.h3 layoutId={`h3 ${url}`}>{capitalizeFirstLetter(selectedPokemon.name)}</motion.h3>
+                                <p>Rating: {getRating()}</p >
+                                {getStars()}
+                            </motion.div>
+                            <motion.div className="info">
+                                <h3>Stats</h3>
+                                <motion.div className="stats">
+                                    {
+                                        selectedPokemon?.stats?.map(stat => (
+                                            <div key={stat.stat.name} className="stat"><p> {stat.stat.name} </p><h3> {stat.base_stat} </h3></div>
 
-                                ))
-                            }
-                            {/* {game.platforms.map(data => (
-                                        <img src={getPlatform(data.platform.name)} alt={data.platform.name} title={data.platform.name} />
-                                    ))} */}
+                                        ))
+                                    }
+                                </motion.div>
+
+                            </motion.div>
                         </motion.div>
 
-                    </motion.div>
-                </motion.div>
+                        <motion.div className="media">
+                            <motion.img layoutId={`image ${url}`} src={selectedPokemon?.sprites?.other['official-artwork'].front_default} alt="pokemon logo" />
+                        </motion.div>
+                    </React.Fragment>}
 
-                <motion.div className="media">
-                    <motion.img layoutId={`image ${url}`} src={selectedPokemon?.sprites?.other['official-artwork'].front_default} alt="pokemon logo" />
-                </motion.div>
             </motion.div>
-        </motion.div>}</div>
+        </motion.div>
     )
 }

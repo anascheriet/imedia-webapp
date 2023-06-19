@@ -1,7 +1,11 @@
 import React from 'react'
 import { Audio, ColorRing } from 'react-loader-spinner';
 
-export const Loader = () => {
+
+type IProps = {
+    colors: [string, string, string, string, string],
+}
+export const Loader: React.FC<IProps> = ({ colors }) => {
 
     return (
         <div className="loader">
@@ -12,7 +16,7 @@ export const Loader = () => {
                 ariaLabel="blocks-loading"
                 wrapperStyle={{}}
                 wrapperClass="blocks-wrapper"
-                colors={['#FFCC01', '#365EAB', '#365EAB', '#365EAB', '#365EAB']}
+                colors={colors}
             />
         </div>
     );
