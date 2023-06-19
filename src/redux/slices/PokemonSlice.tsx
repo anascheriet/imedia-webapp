@@ -3,7 +3,7 @@ import { IPokemonList } from '../../components/pokemonList/types';
 import { IPokemonDetails } from './../../components/pokemonDetail/types';
 
 
-interface IPokemonState {
+export interface IPokemonState {
   pokemons: IPokemonList,
   selectedPokemon: IPokemonDetails
 }
@@ -35,8 +35,11 @@ export const pokemonSlice: Slice<IPokemonState> = createSlice({
     setSelectedPokemon: (state, action: PayloadAction<IPokemonDetails>) => {
       state.selectedPokemon = action.payload;
     },
+    fetchPokemonList: (state, action: PayloadAction<string>) => {
+      // No need to mutate the state here
+    },
   },
 });
 
-export const { setPokemonList, setSelectedPokemon, cleanState, unsetPokemon } = pokemonSlice.actions;
+export const { setPokemonList, setSelectedPokemon, cleanState, unsetPokemon, fetchPokemonList } = pokemonSlice.actions;
 export default pokemonSlice.reducer;
