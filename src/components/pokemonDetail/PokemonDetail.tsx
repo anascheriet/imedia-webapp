@@ -8,6 +8,7 @@ import fullStar from "../../img/star-full.svg";
 import emptyStar from "../../img/star-empty.svg";
 import { unsetPokemon } from '../../redux/slices/PokemonSlice';
 import { Loader } from './../Loader';
+import pokeball from "../../img/pokeball.jpg";
 type IProps = {
     url: string,
     handleClose: () => void
@@ -88,7 +89,9 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
                         </motion.div>
 
                         <motion.div className="media">
-                            <motion.img layoutId={`image ${url}`} src={selectedPokemon?.sprites?.other['official-artwork'].front_default} alt="pokemon logo" />
+                            {selectedPokemon?.sprites?.other['official-artwork'].front_default !== null ? <motion.img layoutId={`image ${url}`} src={selectedPokemon?.sprites?.other['official-artwork'].front_default} alt="pokemon logo" /> :
+                                <h4 style={{"textAlign": "center"}}>😵‍💫 No pokemon preview image available 😵‍💫 </h4>}
+
                         </motion.div>
                     </React.Fragment>}
 
