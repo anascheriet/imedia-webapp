@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/imedia-webapp/static/css/main.69dd8c77.css",
-    "main.js": "/imedia-webapp/static/js/main.6ee41762.js",
+    "main.js": "/imedia-webapp/static/js/main.a0d3c4b2.js",
     "static/js/787.d3a593dc.chunk.js": "/imedia-webapp/static/js/787.d3a593dc.chunk.js",
     "static/media/logo.png": "/imedia-webapp/static/media/logo.6e223bd26877239fb26c.png",
     "static/media/github.svg": "/imedia-webapp/static/media/github.dfec9b673e6432ad90d5e140119cbf00.svg",
@@ -9,11 +9,11 @@
     "static/media/star-full.svg": "/imedia-webapp/static/media/star-full.83abeded145f074c24737e85877ac56a.svg",
     "index.html": "/imedia-webapp/index.html",
     "main.69dd8c77.css.map": "/imedia-webapp/static/css/main.69dd8c77.css.map",
-    "main.6ee41762.js.map": "/imedia-webapp/static/js/main.6ee41762.js.map",
+    "main.a0d3c4b2.js.map": "/imedia-webapp/static/js/main.a0d3c4b2.js.map",
     "787.d3a593dc.chunk.js.map": "/imedia-webapp/static/js/787.d3a593dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.69dd8c77.css",
-    "static/js/main.6ee41762.js"
+    "static/js/main.a0d3c4b2.js"
   ]
 }
