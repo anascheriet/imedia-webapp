@@ -14,9 +14,16 @@ type IProps = {
 }
 export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
 
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 300);
+
         return () => {
             dispatch(unsetPokemon(null))
+            clearTimeout(timer);
         };
     }, [])
 
@@ -58,7 +65,7 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
 
             <motion.div
                 layoutId={url} className="detail">
-                {!selectedPokemon ? <Loader colors={['#FFCC01', '#FFCC01', '#FFCC01', '#FFCC01', '#FFCC01']} /> :
+                {isLoading ? <Loader colors={['#FFCC01', '#FFCC01', '#FFCC01', '#FFCC01', '#FFCC01']} /> :
                     <React.Fragment>
                         <motion.div className="stats">
                             <motion.div className="rating">
