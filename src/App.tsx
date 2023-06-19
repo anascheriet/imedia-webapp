@@ -1,32 +1,25 @@
 import './styles/app.scss';
-import { CSSProperties, useState } from "react";
 import { Nav } from './components/Nav';
 import { PokemonList } from './components/pokemonList/PokemonList';
-
-import { Box, CircularProgress } from '@mui/material';
-import { BounceLoader, CircleLoader } from 'react-spinners';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-
-  const override: CSSProperties = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "red",
-  };
-
-  let [color, setColor] = useState("#ffffff");
   return (
     <div className="App">
+      <ToastContainer position="top-right"
+        autoClose={10000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        style={{ top: '7em' }} />
       <Nav />
       <PokemonList />
-    {/*   <BounceLoader
-        color={color}
-        loading={true}
-        cssOverride={override} 
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      /> */}
     </div>
   );
 }

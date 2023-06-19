@@ -8,6 +8,7 @@ import { setSelectedPokemon } from '../../redux/slices/PokemonSlice';
 import { Modal } from '@mui/material';
 import { PokemonDetail } from '../pokemonDetail/PokemonDetail';
 import { fadeIn } from './../../animation';
+import { toast } from 'react-toastify';
 
 
 type IProps = {
@@ -23,13 +24,19 @@ export const PokemonItem: React.FC<IProps> = ({ url, name, index }) => {
     const dispatch = useDispatch()
 
     const loadPokemonDetail = async () => {
-        const response = await appApi.get(url);
-        dispatch(setSelectedPokemon(response.data));
+        try {
+            const response = await appApi.get(url);
+            dispatch(setSelectedPokemon(response.data));
+        }
+        catch (error) {
+            toast.error("Could not load Pokemon details, please check yout internet and try again.")
+            handleClose();
+        }
     }
 
     const handleOpen = async () => {
-        setOpen(true);
         await loadPokemonDetail();
+        setOpen(true);
     }
 
     return (
