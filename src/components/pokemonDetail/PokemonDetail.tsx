@@ -63,7 +63,23 @@ export const PokemonDetail: React.FC<IProps> = ({ url, handleClose }) => {
                         <p>Rating: {getRating()}</p >
                         {getStars()}
                     </motion.div>
+                    <motion.div className="info">
+                        <h3>Stats</h3>
+                        <motion.div className="stats">
+                            {
+                                selectedPokemon?.stats?.map(stat => (
+                                    <div key={stat.stat.name} className="stat"><p> {stat.stat.name} </p><h3> {stat.base_stat} </h3></div>
+
+                                ))
+                            }
+                            {/* {game.platforms.map(data => (
+                                        <img src={getPlatform(data.platform.name)} alt={data.platform.name} title={data.platform.name} />
+                                    ))} */}
+                        </motion.div>
+
+                    </motion.div>
                 </motion.div>
+
                 <motion.div className="media">
                     <motion.img layoutId={`image ${url}`} src={selectedPokemon?.sprites?.other['official-artwork'].front_default} alt="pokemon logo" />
                 </motion.div>

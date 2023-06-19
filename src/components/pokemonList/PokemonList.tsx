@@ -34,11 +34,14 @@ export const PokemonList: React.FC = () => {
     setIsLoading(true);
     try {
       const response = await appApi.get(url);
+
       dispatch(setPokemonList(response.data));
       setHasMore(response.data.next !== null)
       setOffset(offset + 20)
     }
     catch (error) {
+      console.log(error);
+
       toast.error("Could not get pokemons list :( ")
 
     } finally {

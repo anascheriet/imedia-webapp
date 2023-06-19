@@ -44,20 +44,18 @@
   }
 }
 
+
+.stat {
+  p {
+    padding: 0px 4px;
+  }
+}
 .info {
   text-align: center;
 }
-.platforms {
-  display: flex;
-  justify-content: space-evenly;
-  img {
-    margin-left: 3rem;
-    width: 100%;
-  }
-}
 
 .media {
-  margin-top: 5rem;
+  margin-top: 2rem;
   width: 100%;
   img {
     width: 50%;

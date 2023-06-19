@@ -35,8 +35,8 @@ export const PokemonItem: React.FC<IProps> = ({ url, name, index }) => {
     }
 
     const handleOpen = async () => {
-        await loadPokemonDetail();
         setOpen(true);
+        await loadPokemonDetail();
     }
 
     return (
