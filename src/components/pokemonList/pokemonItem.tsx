@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-import { popup } from '../../animation';
 import "../../styles/pokemon.scss"
 import appApi from './../../api/axios';
 import { useDispatch } from 'react-redux';

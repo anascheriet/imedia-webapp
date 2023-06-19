@@ -1,5 +1,5 @@
 import React from 'react'
-import { Audio, ColorRing } from 'react-loader-spinner';
+import { ColorRing } from 'react-loader-spinner';
 
 
 type IProps = {

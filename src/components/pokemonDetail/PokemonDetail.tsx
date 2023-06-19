@@ -8,7 +8,6 @@ import fullStar from "../../img/star-full.svg";
 import emptyStar from "../../img/star-empty.svg";
 import { unsetPokemon } from '../../redux/slices/PokemonSlice';
 import { Loader } from './../Loader';
-import { ColorRing } from 'react-loader-spinner';
 type IProps = {
     url: string,
     handleClose: () => void
